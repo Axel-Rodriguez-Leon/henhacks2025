@@ -10,6 +10,12 @@
   height: 600px;
   margin: 0 auto;
 }
+.child1{
+width: 65%;
+}
+.child2{
+width: 35%;
+}
 .MapButton{
   background-color: #bcc0cc;
   color: Black;
