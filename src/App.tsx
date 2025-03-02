@@ -79,7 +79,7 @@ const fetchDirections = (origin) => {
       </APIProvider>
       <button className="MapButton" onClick={toggleBlueMap}>Swap Map</button>
       <div className="parent-Text">
-        <div className = "child1">Know that there is always someone that you can call. The blue light stations around
+        <div className = "child1">"Know that there is always someone that you can call. The blue light stations around
           campus (accesible by clicking the above button) will connect you with the police quickly!
         </div>
         <div className = "child2"><div>For more information, visit:</div><a href = "https://www1.udel.edu/police/">{ "https://www1.udel.edu/police/" }</a></div>
