@@ -1,7 +1,9 @@
 // App.jsx
 import React from 'react';
+import { useRef } from 'react';
 import { useState, useEffect} from 'react';
-import {APIProvider, Map, MapCameraChangedEvent, DirectionsRenderer} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, MapCameraChangedEvent, useMapsLibrary,
+  useMap, Marker} from '@vis.gl/react-google-maps';
 import './App.css';
 import polMap from './walkaboutMap.jpg'
 
@@ -13,6 +15,26 @@ function App() {
   const toggleBlueMap = () => {
     setblueMap(!blueMap);
 };
+var marker1 = useRef(null);
+var marker2 = useRef(null);
+var Pos1 = {
+  lat: 0,
+  lng: 0
+}
+var Pos2 = {lat: 0, lng: 0};
+  const map = useMap();
+  const routesLibrary = useMapsLibrary('routes');
+  const [directionsService, setDirectionsService] =
+    useState();
+    
+  const [directionsRenderer, setDirectionsRenderer] =
+    useState();
+  const [routes, setRoutes] = useState([]);
+  const [routeIndex, setRouteIndex] = useState(0);
+  const selected = routes[routeIndex];
+  const leg = selected?.legs[0];
+
+
 useEffect(() => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -22,10 +44,6 @@ useEffect(() => {
           lng: position.coords.longitude,
         });
         // After getting user location, fetch directions
-        fetchDirections({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
       },
       (error) => {
         console.error('Error getting user location:', error);
@@ -39,7 +57,7 @@ useEffect(() => {
 }, []);
 
 const fetchDirections = (origin) => {
-  const destination = { lat: 37.7749, lng: -122.4194 }; // Example destination (San Francisco)
+  const destination = {lat: 39.676, lng: -75.747};
   const directionsService = new window.google.maps.DirectionsService();
 
   directionsService.route(
@@ -65,25 +83,29 @@ const fetchDirections = (origin) => {
         Safety Portal
       </header>
       <div className="App-main-page">
-      <APIProvider apiKey={'AIzaSyDBUndMi_YpuS5oLf6055INabmKhgqjmGo'} onLoad={() => console.log('Maps API has loaded.')}>
+      <APIProvider apiKey={'insert key here'} onLoad={() => console.log('Maps API has loaded.')}>
       <h1></h1>
       {!blueMap && 
         <Map
-          defaultZoom={7} // Adjusted zoom to see the route
+          defaultZoom={13} // Adjusted zoom to see the route
           defaultCenter={userLocation || { lat: 0, lng: 0 }}
           className="Map"
         >
-          {directions && <DirectionsRenderer directions={directions} />}
+          <Marker ref = {marker2} position = {{lat: 39.676, lng: -75.747}} draggable = {true}> </Marker>
+          <Marker ref = {marker1} position = {userLocation || { lat: 0, lng: 0 }} draggable = {true}> </Marker>
+
+          
+          {directions && <directionsRenderer directions={directions} />}
         </Map>}
       {blueMap && <img src={polMap} width="800px" height="1200px"></img>} 
       </APIProvider>
       <button className="MapButton" onClick={toggleBlueMap}>Swap Map</button>
-      <div className="parent-Text">
-        <div className = "child1">"Know that there is always someone that you can call. The blue light stations around
+      
+        <div className = "child1">Know that there is always someone that you can call. The blue light stations around
           campus (accesible by clicking the above button) will connect you with the police quickly!
         </div>
         <div className = "child2"><div>For more information, visit:</div><a href = "https://www1.udel.edu/police/">{ "https://www1.udel.edu/police/" }</a></div>
-      </div>
+      
       </div>
     </div>
   );
