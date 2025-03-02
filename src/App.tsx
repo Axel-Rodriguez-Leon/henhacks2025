@@ -80,7 +80,7 @@ const fetchDirections = (origin) => {
     
     <div className="App">
       <header className="App-header">
-        Safety Portal
+        USafe Safety Portal
       </header>
       <div className="App-main-page">
       <APIProvider apiKey={'insert key here'} onLoad={() => console.log('Maps API has loaded.')}>
