@@ -8,10 +8,11 @@ function App() {
     
     <div className="App">
       <header className="App-header">
-        Axel, Haiya, Jonah, Shaina HenHacks Team Project
+        Get home safe!
       </header>
-      <APIProvider apiKey={'API Key Here'} onLoad={() => console.log('Maps API has loaded.')}>
-      <h1>Hello, world!</h1>
+      <div className="App-main-page">
+      <APIProvider apiKey={'AIzaSyDBUndMi_YpuS5oLf6055INabmKhgqjmGo'} onLoad={() => console.log('Maps API has loaded.')}>
+      <h1></h1>
       <Map
         defaultZoom={13}
         defaultCenter={ { lat: -33.860664, lng: 151.208138 } }
@@ -21,7 +22,7 @@ function App() {
         className = "Map">
       </Map>
       </APIProvider>
-      <p>Growlithe</p>
+      </div>
     </div>
   );
 }
