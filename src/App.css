@@ -1,11 +1,31 @@
 .App {
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF
 }
 
 .Map{
   width: 800px;
   height: 600px;
   margin: 0 auto;
+}
+.child1{
+width: 600px
+}
+.child2{
+width: 200px
+}
+.MapButton{
+  background-color: #bcc0cc;
+  color: Black;
+  border: none;
+  padding: 3px 16px;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: medium;
+  height: 80%;
 }
 
 .App-logo {
@@ -30,10 +50,29 @@
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
 }
+.App-background{
+  width: 100%;
+  background-color: #FFFFFF
+}
+.App-main-page{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .App-link {
   color: #61dafb;
 }
+.parent-Text{
+  display: flex;
+  gap: 20px;
+}
+
 
 @keyframes App-logo-spin {
   from {
