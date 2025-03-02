@@ -2,7 +2,7 @@ import googlemaps
 import requests
 from datetime import datetime
 
-gmaps = googlemaps.Client(key='api_key_here')
+gmaps = googlemaps.Client(key='api key')
 
 #Getting the current time
 now = datetime.now()
