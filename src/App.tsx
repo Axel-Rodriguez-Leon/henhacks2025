@@ -21,7 +21,7 @@ function App() {
       <h1></h1>
       {!blueMap && <Map
         defaultZoom={13}
-        defaultCenter={ { lat: -33.860664, lng: 151.208138 } }
+        defaultCenter={ { lat: 39.677956, lng: -75.750900 } }
         onCameraChanged={ (ev: MapCameraChangedEvent) =>
           console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
         }
