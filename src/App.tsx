@@ -98,7 +98,7 @@ function App() {
         USafe Safety Portal
       </header>
       <div className="App-main-page">
-        <APIProvider apiKey="AIzaSyDBUndMi_YpuS5oLf6O55INabmKhgqjmGo" onLoad={() => console.log('Maps API has loaded.')}>
+        <APIProvider apiKey="API Key Here" onLoad={() => console.log('Maps API has loaded.')}>
           <h1>Guide Map</h1>
           {!blueMap && (
             <Map defaultZoom={13} defaultCenter={userLocation || { lat: 0, lng: 0 }} className="Map">
